@@ -45,7 +45,7 @@
       </li>
     </ul>
 
-    <div id="content"></div>
+    <div id="mfb-targetEl"></div>
 
 
   <script src="http://fb.me/react-0.12.1.min.js"></script>
@@ -53,14 +53,53 @@
 
     <script type="text/jsx">
 
-      var CommentBox = React.createClass({
+
+      var buttons = [{
+        icon: 'ion-paperclip',
+        label: 'one label',
+        href: 'http://www.facebook.com',
+        onClick: function(){
+          console.log('clicked first')
+        }
+      },{
+        icon: 'ion-paperclip',
+        label: 'Google',
+        href: 'http://www.google.com',
+        onClick: defaultClick     
+      },{
+        icon: 'ion-paperclip',
+        label: 'Google',
+        href: 'http://www.google.com',
+        onClick: defaultClick    
+      }];
+
+      var effect = 'slidein',
+          position = 'tl';
+
+      function defaultClick(){
+        console.log('clicked another button');
+      }
+
+      var MaterialMenu = React.createClass({
         render: function() {
+          console.log(this.props)
+          var effect = ' mfb-' + this.props.effect,
+              pos = ' mfb-component--' + this.props.position,
+              baseClass = pos + effect;
+
+          var buttons = this.props.buttons.map(function( button ){
+            return( 
+              <ChildButton href={button.href} 
+                           label={button.label} 
+                           icon={button.icon}/>
+            );
+          });
           return (
-            <ul className="mfb-component--tl mfb-slidein">
+            <ul className={baseClass}>
               <li className="mfb-component__wrap">
                 <MainButton />
                 <ul className="mfb-component__list">
-                  <ChildButton />
+                  {buttons}
                 </ul>        
               </li>
             </ul>
@@ -81,9 +120,10 @@
 
       var ChildButton = React.createClass({
         render: function(){
+          console.log(this)
           return(
             <li>
-              <a href="#" data-mfb-label="Add" data-mfb-label="label with long long title" className="mfb-component__button--child">
+              <a href={this.props.href} data-mfb-label="Add" data-mfb-label="label with long long title" className="mfb-component__button--child">
                 <i className="mfb-component__child-icon ion-paper-airplane"></i>
               </a>
             </li>
@@ -92,8 +132,8 @@
       });      
 
       React.render(
-        <CommentBox />,
-        document.getElementById('content')
+        <MaterialMenu position={position} effect={effect} buttons={buttons} />,
+        document.getElementById('mfb-targetEl')
       );
 
   </script>  
