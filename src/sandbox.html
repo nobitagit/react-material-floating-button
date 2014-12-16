@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../mfb/src/styles/style.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
     <link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,400' rel='stylesheet' type='text/css'>
@@ -11,10 +12,89 @@
   </head>
   <body>
 
+    <ul class="mfb-component--bl mfb-slidein">
+      <li class="mfb-component__wrap">
+        <a href="#" data-mfb-label="A long long label" class="mfb-component__button--main">
+          <i class="mfb-component__main-icon--resting ion-plus-round"></i>
+          <i class="mfb-component__main-icon--active ion-edit"></i>
+        </a>     
+        <ul class="mfb-component__list">
+          <li>
+            <a href="#" data-mfb-label="Add" data-mfb-label="label with long long title" class="mfb-component__button--child">
+              <i class="mfb-component__child-icon ion-paper-airplane"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#" data-mfb-label="Add" class="mfb-component__button--child">
+              <i class="mfb-component__child-icon ion-paperclip"></i>
+            </a>                     
+          </li>
+
+          <li>
+            <a href="#" data-mfb-label="Add" class="mfb-component__button--child">
+              <i class="mfb-component__child-icon ion-calendar"></i>
+            </a>                     
+          </li>
+
+          <li>
+            <a href="#" data-mfb-label="Add" class="mfb-component__button--child">
+              <i class="mfb-component__child-icon ion-key"></i>
+            </a>                     
+          </li>                    
+        </ul>        
+      </li>
+    </ul>
+
+    <div id="content"></div>
 
 
   <script src="http://fb.me/react-0.12.1.min.js"></script>
-  <script>
+  <script src="http://fb.me/JSXTransformer-0.12.1.js"></script>
+
+    <script type="text/jsx">
+
+      var CommentBox = React.createClass({
+        render: function() {
+          return (
+            <ul className="mfb-component--tl mfb-slidein">
+              <li className="mfb-component__wrap">
+                <MainButton />
+                <ul className="mfb-component__list">
+                  <ChildButton />
+                </ul>        
+              </li>
+            </ul>
+          );
+        }
+      });
+    
+      var MainButton = React.createClass({
+        render: function(){
+          return(
+            <a href="#" data-mfb-label="A long long label" className="mfb-component__button--main">
+              <i className="mfb-component__main-icon--resting ion-plus-round"></i>
+              <i className="mfb-component__main-icon--active ion-edit"></i>
+            </a> 
+          );
+        }
+      });
+
+      var ChildButton = React.createClass({
+        render: function(){
+          return(
+            <li>
+              <a href="#" data-mfb-label="Add" data-mfb-label="label with long long title" className="mfb-component__button--child">
+                <i className="mfb-component__child-icon ion-paper-airplane"></i>
+              </a>
+            </li>
+          );
+        }
+      });      
+
+      React.render(
+        <CommentBox />,
+        document.getElementById('content')
+      );
 
   </script>  
   </body>
