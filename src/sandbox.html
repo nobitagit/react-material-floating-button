@@ -46,7 +46,8 @@
     </ul>
 
     <div id="mfb-targetEl"></div>
-
+  
+    <button id="addThis" style="margin: 180px;">add</button>
 
   <script src="http://fb.me/react-0.12.1.min.js"></script>
   <script src="http://fb.me/JSXTransformer-0.12.1.js"></script>
@@ -56,44 +57,62 @@
 
       var buttons = [{
         icon: 'ion-paperclip',
-        label: 'one label',
-        href: 'http://www.facebook.com',
+        label: 'Facebook',
+        //href: 'http://www.facebook.com',
         onClick: function(){
           console.log('clicked first')
         }
       },{
         icon: 'ion-paperclip',
         label: 'Google',
-        href: 'http://www.google.com',
+        //href: 'http://www.google.com',
         onClick: defaultClick     
       },{
         icon: 'ion-paperclip',
-        label: 'Google',
-        href: 'http://www.google.com',
+        label: 'Quora',
+        //href: 'http://www.quora.com',
         onClick: defaultClick    
       }];
+
+      var aFourth = {
+        icon: 'ion-paperclip',
+        label: 'Quora',
+        //href: 'http://www.quora.com',
+        onClick: defaultClick    
+      };
+
+      var addThis = document.getElementById('addThis');
+
+      addThis.addEventListener('click', function() {
+        buttons.push(aFourth);
+        console.log(buttons)
+      });
 
       var effect = 'slidein',
           position = 'tl';
 
-      function defaultClick(){
+      function defaultClick(a, b){
+        console.log(a)
+        console.log(b)
+        console.log(this)
         console.log('clicked another button');
       }
 
       var MaterialMenu = React.createClass({
         render: function() {
-          console.log(this.props)
           var effect = ' mfb-' + this.props.effect,
               pos = ' mfb-component--' + this.props.position,
               baseClass = pos + effect;
 
-          var buttons = this.props.buttons.map(function( button ){
+          var buttons = this.props.buttons.map(function( button, i ){
             return( 
               <ChildButton href={button.href} 
                            label={button.label} 
-                           icon={button.icon}/>
+                           icon={button.icon}
+                           key={i}
+                           onClick={button.onClick.bind(this, button, i)}/>
             );
-          });
+          }, this);
           return (
             <ul className={baseClass}>
               <li className="mfb-component__wrap">
@@ -110,7 +129,8 @@
       var MainButton = React.createClass({
         render: function(){
           return(
-            <a href="#" data-mfb-label="A long long label" className="mfb-component__button--main">
+            <a href="" className="mfb-component__button--main"
+               data-mfb-label="A long long label">
               <i className="mfb-component__main-icon--resting ion-plus-round"></i>
               <i className="mfb-component__main-icon--active ion-edit"></i>
             </a> 
@@ -120,11 +140,14 @@
 
       var ChildButton = React.createClass({
         render: function(){
-          console.log(this)
+          var iconClass = 'mfb-component__child-icon ' + this.props.icon; 
           return(
             <li>
-              <a href={this.props.href} data-mfb-label="Add" data-mfb-label="label with long long title" className="mfb-component__button--child">
-                <i className="mfb-component__child-icon ion-paper-airplane"></i>
+              <a href={this.props.href} 
+                 data-mfb-label={this.props.label} 
+                 onClick={this.props.onClick.bind(this)}
+                 className="mfb-component__button--child">
+                <i className={iconClass}></i>
               </a>
             </li>
           );
