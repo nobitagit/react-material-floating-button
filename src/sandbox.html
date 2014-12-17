@@ -86,6 +86,7 @@
       addThis.addEventListener('click', function() {
         buttons.push(aFourth);
         console.log(buttons)
+        render();
       });
 
       var effect = 'slidein',
@@ -154,10 +155,14 @@
         }
       });      
 
-      React.render(
-        <MaterialMenu position={position} effect={effect} buttons={buttons} />,
-        document.getElementById('mfb-targetEl')
-      );
+      function render(){
+        React.render(
+          <MaterialMenu position={position} effect={effect} buttons={buttons} />,
+          document.getElementById('mfb-targetEl')
+        );
+      }
+
+      render()
 
   </script>  
   </body>
