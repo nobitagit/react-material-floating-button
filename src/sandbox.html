@@ -17,7 +17,7 @@
         <a href="#" data-mfb-label="A long long label" class="mfb-component__button--main">
           <i class="mfb-component__main-icon--resting ion-plus-round"></i>
           <i class="mfb-component__main-icon--active ion-edit"></i>
-        </a>     
+        </a>
         <ul class="mfb-component__list">
           <li>
             <a href="#" data-mfb-label="Add" data-mfb-label="label with long long title" class="mfb-component__button--child">
@@ -27,26 +27,26 @@
           <li>
             <a href="#" data-mfb-label="Add" class="mfb-component__button--child">
               <i class="mfb-component__child-icon ion-paperclip"></i>
-            </a>                     
+            </a>
           </li>
 
           <li>
             <a href="#" data-mfb-label="Add" class="mfb-component__button--child">
               <i class="mfb-component__child-icon ion-calendar"></i>
-            </a>                     
+            </a>
           </li>
 
           <li>
             <a href="#" data-mfb-label="Add" class="mfb-component__button--child">
               <i class="mfb-component__child-icon ion-key"></i>
-            </a>                     
-          </li>                    
-        </ul>        
+            </a>
+          </li>
+        </ul>
       </li>
     </ul>
 
     <div id="mfb-targetEl"></div>
-  
+
     <button id="addThis" style="margin: 180px;">add</button>
 
   <script src="http://fb.me/react-0.12.1.min.js"></script>
@@ -66,19 +66,19 @@
         icon: 'ion-paperclip',
         label: 'Google',
         //href: 'http://www.google.com',
-        onClick: defaultClick     
+        onClick: defaultClick
       },{
         icon: 'ion-paperclip',
         label: 'Quora',
         //href: 'http://www.quora.com',
-        onClick: defaultClick    
+        onClick: defaultClick
       }];
 
       var aFourth = {
         icon: 'ion-paperclip',
         label: 'Quora',
         //href: 'http://www.quora.com',
-        onClick: defaultClick    
+        onClick: defaultClick
       };
 
       var addThis = document.getElementById('addThis');
@@ -106,9 +106,9 @@
               baseClass = pos + effect;
 
           var buttons = this.props.buttons.map(function( button, i ){
-            return( 
-              <ChildButton href={button.href} 
-                           label={button.label} 
+            return(
+              <ChildButton href={button.href}
+                           label={button.label}
                            icon={button.icon}
                            key={i}
                            onClick={button.onClick.bind(this, button, i)}/>
@@ -120,13 +120,13 @@
                 <MainButton />
                 <ul className="mfb-component__list">
                   {buttons}
-                </ul>        
+                </ul>
               </li>
             </ul>
           );
         }
       });
-    
+
       var MainButton = React.createClass({
         render: function(){
           return(
@@ -134,18 +134,18 @@
                data-mfb-label="A long long label">
               <i className="mfb-component__main-icon--resting ion-plus-round"></i>
               <i className="mfb-component__main-icon--active ion-edit"></i>
-            </a> 
+            </a>
           );
         }
       });
 
       var ChildButton = React.createClass({
         render: function(){
-          var iconClass = 'mfb-component__child-icon ' + this.props.icon; 
+          var iconClass = 'mfb-component__child-icon ' + this.props.icon;
           return(
             <li>
-              <a href={this.props.href} 
-                 data-mfb-label={this.props.label} 
+              <a href={this.props.href}
+                 data-mfb-label={this.props.label}
                  onClick={this.props.onClick.bind(this)}
                  className="mfb-component__button--child">
                 <i className={iconClass}></i>
@@ -153,7 +153,7 @@
             </li>
           );
         }
-      });      
+      });
 
       function render(){
         React.render(
@@ -164,6 +164,6 @@
 
       render()
 
-  </script>  
+  </script>
   </body>
 </html>
