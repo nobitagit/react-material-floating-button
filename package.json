@@ -5,9 +5,15 @@
   "main": "src/index.html",
   "repository": "https://github.com/nobitagit/react-material-floating-button",
   "scripts": {
+    "start": "jsx --watch  src/ build/",
+    "build": "jsx src/ build/",
     "test": "grunt jasmine"
   },
   "keywords": [
+    "react",
+    "reactjs",
+    "facebook",
+    "react-component",
     "component",
     "material",
     "design",
@@ -21,7 +27,9 @@
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-contrib-sass": "^0.8.1",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-gh-pages": "^0.9.1",
+    "grunt-gh-pages": "^0.9.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "react-tools": "^0.12.2"
+  }
 }
