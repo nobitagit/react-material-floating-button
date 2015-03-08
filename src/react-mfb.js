@@ -13,7 +13,6 @@
 
 }(this, function(root, MaterialMenu, React) {
 
-
     MaterialMenu = React.createClass({
 
       getInitialState: function() {
