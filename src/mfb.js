@@ -64,7 +64,7 @@
             iconActive = "mfb-component__main-icon--active " + this.props.configs.iconActive;
         if(this.props.configs.label){
           return(
-            <a href="#" className="mfb-component__button--main" onClick={this.handleClick} data-mfb-label={this.props.configs.label}>
+            <a href={this.props.href} className="mfb-component__button--main" onClick={this.handleClick} data-mfb-label={this.props.configs.label}>
               <i className={iconResting}></i>
               <i className={iconActive}></i>
             </a>
