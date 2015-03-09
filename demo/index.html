@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html ng-app="test-app">
+<html>
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,17 +18,14 @@
     <!-- endbuild -->
 
     <link href="index.css" rel="stylesheet">
-    <title>Material floating button. The index.</title>
+    <title>React Material Floating Button - by Nobita</title>
   </head>
-  <body ng-controller="myCtrl">
-    <nav mfb-menu position="{{pos}}" effect="{{chosenEffect}}" label="hover here" active-icon="ion-edit" resting-icon="ion-plus-round" ng-repeat="pos in positions" toggling-method="hover" menu-state="{{changeState}}">
-      <a mfb-button icon="{{button.icon}}" label="{{button.label}}" ng-repeat="button in buttons"></a>
-    </nav>
+  <body>
 
     <section id="panel" class="panel">
       <header>
         <h1>
-          Angularjs Material Floating Buttons
+          React Material Floating Buttons
         </h1>
         <span id="showcode" class="showcode">
           <i class="ion-eye icon-yepcode"></i>
@@ -37,13 +34,18 @@
       </header>
       <article>
         <p>
-          Customizable, semantic Material floating action button implemented as an Angularjs directive. Also available in vanilla html. <br>
+          Customizable, semantic material floating action button implemented as a React component. Also available in vanilla html and Angularjs directive. <br>
           <span class="striked">Shamelessly</span> Openly inspired by Google Inbox, Evernote and Path.
         </p>
         <p>
-          To add Material Floating Buttons to any project just download or clone the repo from Github. Click on the <strong>yellow button</strong> here above for a code preview or choose an effect from the <strong>dropdown</strong> below and hover over any button on the corners of the screen.
+          To add Material Floating Buttons to any project just download or clone the repo from Github. Click on the <strong>yellow button</strong> here above for a code preview or choose an effect from the <strong>dropdown</strong> below and interact with any button on the corners of the screen.
         </p>
         <p>
+          <select id="selections">
+            <option value="slidein" selected>Slide in</option>
+            <option value="zoomin">Zoom in</option>
+            <option value="fountain">Fountain</option>
+          </select>
           <select id="selections" ng-model="chosenEffect">
              <option value="{{effect.value}}" ng-disabled="{{!effect.value}}" ng-repeat="effect in effects">{{effect.name}}</option>
           </select>
@@ -53,7 +55,7 @@
           <p>
             To add Material Floating Buttons to any project just download the files from here below or clone the repo from Github. <br>
           </p>
-          <pre>git clone https://github.com/nobitagit/ng-material-floating-button.git</pre>
+          <pre>git clone https://github.com/nobitagit/react-material-floating-button.git</pre>
           <p>
             After referencing the styles in your header drop the MFB markup in your HTML like so:
           </p>
@@ -100,48 +102,30 @@
     function _toggleCode() {
       panel.classList.toggle('viewCode');
     }
+
+    var select = document.getElementById('selections');
+
+    select.addEventListener('change', _switchEffect);
+
+    function _switchEffect(e){
+      console.log(e)
+      console.dir(this)
+    }
   </script>
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular.js"></script>
-  <script>!window.angular && document.write(unescape('%3Cscript src="../bower_components/angularjs/angular.js"%3E%3C/script%3E'))</script>
-  <script type="text/javascript" src="mfb-directive.js"></script>
+  <script src="http://fb.me/react-with-addons-0.12.2.min.js"></script>
+  <script src="build/react-mfb.js"></script>
   <script>
 
-  var app = angular.module('test-app', ['ng-mfb']);
-
-  app.controller('myCtrl', function($scope){
 
     $scope.positions = ['tl', 'tr', 'br', 'bl'];
 
-    $scope.effects = [{
-      name: 'Choose an effect here',
-    },{
-      value: 'slidein',
-      name: 'Slide in + fade'
-    },{
-      value: 'zoomin',
-      name: 'Zoom in'
-    },{
-      value: 'fountain',
-      name: 'Fountain'
-    }];
 
-    $scope.buttons = [{
-      label: 'a link',
-      icon: 'ion-paper-airplane'
-    },{
-      label: 'a link',
-      icon: 'ion-paper-airplane'
-    },{
-      label: 'a link',
-      icon: 'ion-paper-airplane'
-    }];
 
     $scope.chosenEffect = 'zoomin';
 
-  });
   </script>
   </body>
 </html>
