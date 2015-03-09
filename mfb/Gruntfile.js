@@ -6,47 +6,77 @@ module.exports = function(grunt) {
     watch: {
       css: {
         files: '**/*.scss',
-        tasks: ['sass:base']
+        tasks: ['sass:base', 'cssmin']
       }
     },
     sass: {
       base: {
         files: {
-          'src/styles/style.css': 'src/styles/style.scss'          
+          'src/mfb.css': 'src/mfb.scss'
         }
       }
     },
 
     clean: {
-      check: ['.grunt/grunt-gh-pages/gh-pages/check']
+      check: ['.grunt/grunt-gh-pages/gh-pages/check'],
+      live:  ['.grunt/grunt-gh-pages/gh-pages/live']
     },
 
-    livePages: ['index.html', 'index.css', 'showcase.html', 'styles/*.css', '**/*.map'],
+    cssmin: {
+      main: {
+        files: [{
+          expand: true,
+          cwd: 'src',
+          src: ['mfb.css', '!*.min.css'],
+          dest: 'src',
+          ext: '.min.css'
+        }]
+      }
+    },
+
+    uglify: {
+      main: {
+        files: {
+          'src/mfb.min.js': ['src/mfb.js']
+        }
+      }
+    },
+
+    livePages: [
+            'index.html',
+            'index.css',
+            'showcase.html',
+            '*.css',
+            '**/*.map',
+            'mfb.js',
+            'lib/modernizr.touch.js'],
     'gh-pages': {
       options: {
         base: 'src',
       },
       'live': {
-        src: ['<%= livePages %>'] 
+        src: ['<%= livePages %>']
       },
       'check': {
         options: {
           push: false
         },
-        src: ['<%= livePages %>']      
+        src: ['<%= livePages %>']
       }
-    }    
+    }
   });
 
   grunt.loadNpmTasks('grunt-gh-pages');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-contrib-clean');  
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
   // Publish this to live site
-  grunt.registerTask('live', ['gh-pages:live']);
+  grunt.registerTask('live', ['clean:live','gh-pages:live']);
   // Live site dry run: test locally before pushing.
-  // In .grunt look for the folder 'check' and see if everything's ok
+  // In .grunt look for the folder 'check'
   grunt.registerTask('livecheck', ['clean:check','gh-pages:check']);
 
   grunt.registerTask('watch-css', ['watch:css']);
