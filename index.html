@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="mfb.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,400' rel='stylesheet' type='text/css'>
+
+    <script src="modernizr.touch.js"></script>
+
+    <script src="http://fb.me/react-with-addons-0.12.2.min.js"></script>
+
+    <script src="mfb-menu.js"></script>
+
+    <link href="index.css" rel="stylesheet">
+    <title>React Material Floating Button - by Nobita</title>
+  </head>
+  <body>
+
+    <div id="menu"></div>
+
+    <section id="panel" class="panel">
+      <header>
+        <h1>
+          React Material Floating Button
+        </h1>
+        <span id="showcode" class="showcode">
+          <i class="ion-eye icon-yepcode"></i>
+          <i class="ion-eye-disabled icon-nocode"></i>
+        </span>
+      </header>
+      <article>
+        <p>
+          Material floating action button implemented as a React component. Also available in vanilla html and Angularjs directive. <br>
+          <span class="striked">Shamelessly</span> Openly inspired by Google Inbox, Evernote and Path.
+        </p>
+        <p>
+          To add Material Floating Buttons to any project just download or clone the repo from Github. Click on the <strong>yellow button</strong> here above for a code preview or choose an effect from the <strong>dropdown</strong> below and interact with any button on the corners of the screen.
+        </p>
+        <p>
+          <select id="selections">
+            <option value="zoomin" selected>Zoom in</option>
+            <option value="slidein">Slide in</option>
+            <option value="fountain">Fountain</option>
+          </select>
+        </p>
+
+        <div class="code">
+          <p>
+            To add Material Floating Buttons to any project just download the files from here below or clone the repo from Github. <br>
+          </p>
+          <pre>git clone https://github.com/nobitagit/react-material-floating-button.git</pre>
+          <p>
+            Run <code>npm install</code> and after referencing the styles in your header drop the MFB markup in your HTML like so:
+          </p>
+<pre>
+var component = React.createElement(MfbMenu, yourOpts);
+React.render( component, document.getElementById('someId') );</pre>
+          <p>
+            The <code>yourOpts</code> object passed as a second param to the <code>createElement</code> function provide the configuration for the component such as position, labels, icons, links and callbacks. All the other styles and configurations are just css.
+          </p>
+          <p>
+            The best way to customise the styles is to build them directly from the source as the scss file is filled with customizable variables. From there choose your favorite colors and sizes and then compile the css.
+          </p>
+        </div>
+
+      </article>
+      <footer>
+        <a href="https://github.com/nobitagit/ng-material-floating-button">
+          <button class="actions">
+            <i class="ion-social-github"></i> View on Github
+          </button>
+        </a>
+        <a href="http://twitter.com/share?text=Amazing Google Inbox style material floating menu as a React component! http://nobitagit.github.io/react-material-floating-button/ #material #menu #react #reactjs #component">
+          <button class="actions">
+            <i class="ion-social-twitter"></i> Share on Twitter
+          </button>
+        </a>
+      </footer>
+    </section>
+
+
+    <script>
+
+      var panel = document.getElementById('panel'),
+          showcode = document.getElementById('showcode'),
+          select = document.getElementById('selections');
+
+
+
+      function switchEffect(e){
+        var selected = this.options[this.selectedIndex].value;
+        opts.effect = selected;
+        renderMenu();
+      }
+
+      function toggleCode() {
+        panel.classList.toggle('viewCode');
+      }
+
+      showcode.addEventListener('click', toggleCode);
+      select.addEventListener('change', switchEffect);
+
+      var buttons = [{
+          icon: 'ion-social-github',
+          label: 'View on Github',
+          href: 'https://github.com/nobitagit/react-material-floating-button/',
+          onClick: function(){
+            // do something
+          }
+        },{
+          icon: 'ion-social-octocat',
+          label: 'Follow me on Github',
+          href: 'https://github.com/nobitagit',
+          onClick: function(){
+            // do something more
+          }
+        }, {
+          icon: 'ion-social-twitter',
+          label: 'Share on Twitter',
+          href: 'Amazing Google Inbox style material floating menu as a React component! http://nobitagit.github.io/react-material-floating-button/ #material #menu #react #reactjs #component',
+          onClick: function(){
+            // do something else
+          }
+        }];
+
+      var mainB = {
+        iconResting: 'ion-plus-round',
+        iconActive: 'ion-close-round',
+        label: null
+      };
+
+      var opts = {
+        effect: 'zoomin', // possible values: slidein | fountain | zoomin
+        method: 'click',  // possible values: hover | click
+        position: 'br',   // possible values: br | bl | tr | tl
+        buttons: buttons,
+        mainButton: mainB
+      };
+
+      function renderMenu(){
+        React.render( React.createElement(MfbMenu, opts), document.getElementById('menu') );
+      }
+      renderMenu();
+    </script>
+
+  </body>
+</html>
