@@ -10,11 +10,17 @@
     <!-- endbuild -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/1.5.2/css/ionicons.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,400' rel='stylesheet' type='text/css'>
 
     <!-- build:js modernizr.touch.js -->
     <script type="text/javascript" src="../mfb/src/lib/modernizr.touch.js"></script>
+    <!-- endbuild -->
+
+    <script src="http://fb.me/react-with-addons-0.12.2.min.js"></script>
+
+    <!-- build:js mfb-menu.js -->
+    <script src="../build/mfb-menu.js"></script>
     <!-- endbuild -->
 
     <link href="index.css" rel="stylesheet">
@@ -22,10 +28,12 @@
   </head>
   <body>
 
+    <div id="menu"></div>
+
     <section id="panel" class="panel">
       <header>
         <h1>
-          React Material Floating Buttons
+          React Material Floating Button
         </h1>
         <span id="showcode" class="showcode">
           <i class="ion-eye icon-yepcode"></i>
@@ -42,12 +50,9 @@
         </p>
         <p>
           <select id="selections">
-            <option value="slidein" selected>Slide in</option>
-            <option value="zoomin">Zoom in</option>
+            <option value="zoomin" selected>Zoom in</option>
+            <option value="slidein">Slide in</option>
             <option value="fountain">Fountain</option>
-          </select>
-          <select id="selections" ng-model="chosenEffect">
-             <option value="{{effect.value}}" ng-disabled="{{!effect.value}}" ng-repeat="effect in effects">{{effect.name}}</option>
           </select>
         </p>
 
@@ -57,34 +62,27 @@
           </p>
           <pre>git clone https://github.com/nobitagit/react-material-floating-button.git</pre>
           <p>
-            After referencing the styles in your header drop the MFB markup in your HTML like so:
+            Run <code>npm install</code> and after referencing the styles in your header drop the MFB markup in your HTML like so:
           </p>
-<pre>&lt;nav mfb-menu position="{{pos}}" effect="{{chosenEffect}}"
-        label="your main button text here"
-        active-icon="ion-edit" resting-icon="ion-plus-round"&gt;
-  &lt;a mfb-button icon="icon-class" label="child button text"&gt;
-  &lt;/a&gt;
-&lt;/nav&gt;</pre>
+<pre>
+var component = React.createElement(MfbMenu, yourOpts);
+React.render( component, document.getElementById('someId') );</pre>
           <p>
-            The attributes provide the element configuration for position, labels and icons used. All the other styles and configurations are just css.
+            The <code>yourOpts</code> object passed as a second param to the <code>createElement</code> function provide the configuration for the component such as position, labels, icons, links and callbacks. All the other styles and configurations are just css.
           </p>
           <p>
             The best way to customise the styles is to build them directly from the source as the scss file is filled with customizable variables. From there choose your favorite colors and sizes and then compile the css.
-          </p>
-          <p>
-            If you use <a href="http://gruntjs.com/">Grunt</a> and have cloned the repo run <code>npm init</code> and then <code>grunt build</code> or <code>grunt watch</code> to have automatic compilation.
           </p>
         </div>
 
       </article>
       <footer>
-        <a href="https://github.com/nobitagit/ng-material-floating-button"
-        >
+        <a href="https://github.com/nobitagit/ng-material-floating-button">
           <button class="actions">
             <i class="ion-social-github"></i> View on Github
           </button>
         </a>
-        <a href="http://twitter.com/share?text=Check this material floating button directive for Angularjs!&url=http://nobitagit.github.io/ng-material-floating-button/&hashtags=material,design,button,angularjs,directive">
+        <a href="http://twitter.com/share?text=Amazing Google Inbox style material floating menu as a React component! http://nobitagit.github.io/react-material-floating-button/ #material #menu #react #reactjs #component">
           <button class="actions">
             <i class="ion-social-twitter"></i> Share on Twitter
           </button>
@@ -92,40 +90,70 @@
       </footer>
     </section>
 
-  <script>
 
-    var panel = document.getElementById('panel'),
-        showcode = document.getElementById('showcode');
+    <script>
 
-    showcode.addEventListener('click', _toggleCode);
-
-    function _toggleCode() {
-      panel.classList.toggle('viewCode');
-    }
-
-    var select = document.getElementById('selections');
-
-    select.addEventListener('change', _switchEffect);
-
-    function _switchEffect(e){
-      console.log(e)
-      console.dir(this)
-    }
-  </script>
+      var panel = document.getElementById('panel'),
+          showcode = document.getElementById('showcode'),
+          select = document.getElementById('selections');
 
 
 
-  <script src="http://fb.me/react-with-addons-0.12.2.min.js"></script>
-  <script src="build/react-mfb.js"></script>
-  <script>
+      function switchEffect(e){
+        var selected = this.options[this.selectedIndex].value;
+        opts.effect = selected;
+        renderMenu();
+      }
 
+      function toggleCode() {
+        panel.classList.toggle('viewCode');
+      }
 
-    $scope.positions = ['tl', 'tr', 'br', 'bl'];
+      showcode.addEventListener('click', toggleCode);
+      select.addEventListener('change', switchEffect);
 
+      var buttons = [{
+          icon: 'ion-social-github',
+          label: 'View on Github',
+          href: 'http://nobitagit.github.io/react-material-floating-button/',
+          onClick: function(){
+            // do something
+          }
+        },{
+          icon: 'ion-social-octocat',
+          label: 'Follow me on Github',
+          href: 'https://github.com/nobitagit',
+          onClick: function(){
+            // do something more
+          }
+        }, {
+          icon: 'ion-social-twitter',
+          label: 'Share on Twitter',
+          href: 'Amazing Google Inbox style material floating menu as a React component! http://nobitagit.github.io/react-material-floating-button/ #material #menu #react #reactjs #component',
+          onClick: function(){
+            // do something else
+          }
+        }];
 
+      var mainB = {
+        iconResting: 'ion-plus-round',
+        iconActive: 'ion-close-round',
+        label: null
+      };
 
-    $scope.chosenEffect = 'zoomin';
+      var opts = {
+        effect: 'zoomin', // possible values: slidein | fountain | zoomin
+        method: 'click',  // possible values: hover | click
+        position: 'br',   // possible values: br | bl | tr | tl 
+        buttons: buttons,
+        mainButton: mainB
+      };
 
-  </script>
+      function renderMenu(){
+        React.render( React.createElement(MfbMenu, opts), document.getElementById('menu') );
+      }
+      renderMenu();
+    </script>
+
   </body>
 </html>

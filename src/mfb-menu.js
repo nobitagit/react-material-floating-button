@@ -1,19 +1,20 @@
 /** @jsx React.DOM */
-(function(root, factory) {
+(function (root, factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define(['react'], factory);
+    } else if (typeof exports === 'object') {
+        // Node. Does not work with strict CommonJS, but
+        // only CommonJS-like environments that support module.exports,
+        // like Node.
+        module.exports = factory(require('react'));
+    } else {
+        // Browser globals (root is window)
+        root.MfbMenu = factory(root.React);
+    }
+}(this, function (React) {
 
-  if (typeof define === 'function' && define.amd) {
-    define(['react', 'react-stylesheet', 'exports'], function(React, exports) {
-      root.MaterialMenu = factory(root, exports, React);
-    });
-  } else if (typeof exports !== 'undefined') {
-    module.exports = factory(root, exports, require('react'));
-  } else {
-    root.MaterialMenu = factory(root, {}, root.React);
-  }
-
-}(this, function(root, MaterialMenu, React) {
-
-    MaterialMenu = React.createClass({
+    var MfbMenu = React.createClass({
 
       getInitialState: function() {
         return { isOpen: false };
@@ -42,9 +43,12 @@
           );
         }, this);
         return (
-          <ul className={baseClass} data-mfb-toggle={this.props.method} data-mfb-state={this.state.isOpen ? 'open' : 'closed'}>
+          <ul className={baseClass}
+              data-mfb-toggle={this.props.method}
+              data-mfb-state={this.state.isOpen ? 'open' : 'closed'}>
             <li className="mfb-component__wrap">
-              <MainButton onToggleMenu={this.toggleMenu} configs={this.props.mainButton}/>
+              <MainButton onToggleMenu={this.toggleMenu}
+                          configs={this.props.mainButton}/>
               <ul className="mfb-component__list">
                 {buttons}
               </ul>
@@ -95,5 +99,5 @@
       }
     });
 
-  return MaterialMenu;
+  return MfbMenu;
 }));

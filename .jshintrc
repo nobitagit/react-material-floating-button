@@ -11,5 +11,8 @@
     "undef": true,
     "unused": true,
     "jasmine" : true,
-    "indent": 2  
+    "indent": 2 ,
+    "globals": {
+      "define" : true
+    }
 }

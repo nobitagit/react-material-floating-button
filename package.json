@@ -7,7 +7,8 @@
   "scripts": {
     "start": "jsx --watch  src/ build/",
     "build": "jsx src/ build/",
-    "test": "grunt jasmine"
+    "test": "grunt jasmine",
+    "bro": "browserify -t reactify demo/index.js -o build/bundle.js"
   },
   "keywords": [
     "react",
@@ -22,14 +23,19 @@
   "author": "Nobita",
   "license": "MIT",
   "devDependencies": {
+    "browserify": "^9.0.3",
     "grunt": "^0.4.5",
     "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-copy": "^0.8.0",
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-contrib-sass": "^0.8.1",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-gh-pages": "^0.9.1"
+    "grunt-gh-pages": "^0.9.1",
+    "grunt-usemin": "^3.0.0",
+    "reactify": "^1.0.0"
   },
   "dependencies": {
+    "react": "^0.12.2",
     "react-tools": "^0.12.2"
   }
 }
