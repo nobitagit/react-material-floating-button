@@ -10,7 +10,8 @@ Please mind that this is v.0.0.x, so docs and availability via npm are still to 
 In the meantime if you want to play with it check the project homepage source code for hints on how to use the component.
 
 ##Demo##
-See the [project page]() or just look at this awesome gif:
+See the [project page](http://nobitagit.github.io/react-material-floating-button/) or just look at this awesome gif:
+
 <img src="http://zippy.gfycat.com/LimitedTatteredFieldmouse.gif">
 
 **Other versions**
