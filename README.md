@@ -6,7 +6,12 @@ Material design floating action button implemented as a React component.
 Made to be fast and easy to customize.
 ~~Shamelessly~~ inspired by action buttons from Google Inbox, Evernote and Path.
 
-Please mind that this is v.0.0.x, so docs and availability via npm are still to come (but hopefully will be there soon).
+Clone/download the repo from Github or just use npm:
+```
+npm install react-mfb --save
+```
+
+Docs are still to come (but hopefully will be there soon).
 In the meantime if you want to play with it check the project homepage source code for hints on how to use the component.
 
 ##Demo##

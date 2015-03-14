@@ -1,8 +1,8 @@
 {
-  "name": "react-material-floating-button",
-  "version": "0.0.1",
-  "description": "React component for button à la Path and Google Inbox",
-  "main": "src/index.html",
+  "name": "react-mfb",
+  "version": "0.0.2",
+  "description": "React component for for a material menu à la Path and Google Inbox",
+  "main": "src/mfb-menu.js",
   "repository": "https://github.com/nobitagit/react-material-floating-button",
   "scripts": {
     "start": "jsx --watch  src/ build/",
@@ -20,6 +20,7 @@
     "design",
     "css"
   ],
+  "bugs": "https://github.com/nobitagit/react-material-floating-button/issues",
   "author": "Nobita",
   "license": "MIT",
   "devDependencies": {
@@ -32,10 +33,10 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-gh-pages": "^0.9.1",
     "grunt-usemin": "^3.0.0",
-    "reactify": "^1.0.0"
-  },
-  "dependencies": {
-    "react": "^0.12.2",
+    "reactify": "^1.0.0",
     "react-tools": "^0.12.2"
+  },
+  "peerDependencies": {
+    "react": "^0.12.2"
   }
 }
