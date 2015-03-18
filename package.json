@@ -13,6 +13,8 @@
   "files": [
     "LICENSE",
     "index.js",
+    "mfb.css",
+    "mfb.css.map",
     "build"
   ],
   "scripts": {

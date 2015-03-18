@@ -9,4 +9,9 @@ gulp.task('js', function(){
     .pipe(gulp.dest('build'));
 });
 
-gulp.task('default', ['js']);
+gulp.task('css', function(){
+  return gulp.src(['./mfb/src/mfb.css', './mfb/src/mfb.css.map'])
+    .pipe(gulp.dest('./'));
+});
+
+gulp.task('default', ['js', 'css']);
