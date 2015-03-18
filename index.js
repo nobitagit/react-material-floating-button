@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  Menu: require('./src/menu'),
-  MainButton: require('./src/main-button'),
-  ChildButton: require('./src/child-button')
+  Menu: require('./build/menu'),
+  MainButton: require('./build/main-button'),
+  ChildButton: require('./build/child-button')
 };
