@@ -2,27 +2,32 @@
   "name": "react-mfb",
   "version": "0.0.2",
   "description": "React component for a material menu à la Path and Google Inbox",
-  "main": "src/mfb-menu.js",
-  "repository": "https://github.com/nobitagit/react-material-floating-button",
-  "scripts": {
-    "start": "jsx --watch  src/ build/",
-    "build": "jsx src/ build/",
-    "test": "grunt jasmine",
-    "bro": "browserify -t reactify demo/index.js -o build/bundle.js"
-  },
-  "keywords": [
-    "react",
-    "reactjs",
-    "facebook",
-    "react-component",
-    "component",
-    "material",
-    "design",
-    "css"
-  ],
-  "bugs": "https://github.com/nobitagit/react-material-floating-button/issues",
   "author": "Nobita",
+  "contributors": [],
+  "repository": "nobitagit/react-material-floating-button",
   "license": "MIT",
+  "engines": {
+    "node": ">= 0.10"
+  },
+  "main": "index.js",
+  "files": [
+    "LICENSE",
+    "index.js",
+    "mfb.css",
+    "mfb.css.map",
+    "build"
+  ],
+  "scripts": {
+    "prepublish": "gulp",
+    "build": "gulp",
+    "bro": "npm run build && browserify -t reactify demo/index.js -o demo/bundle.js"
+  },
+  "dependencies": {
+    "classnames": "^1.2.0"
+  },
+  "peerDependencies": {
+    "react": "^0.13.0"
+  },
   "devDependencies": {
     "browserify": "^9.0.3",
     "grunt": "^0.4.5",
@@ -33,10 +38,18 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-gh-pages": "^0.9.1",
     "grunt-usemin": "^3.0.0",
-    "reactify": "^1.0.0",
-    "react-tools": "^0.12.2"
+    "gulp": "^3.8.11",
+    "gulp-babel": "^4.0.0",
+    "reactify": "^1.0.0"
   },
-  "peerDependencies": {
-    "react": "^0.12.2"
-  }
+  "keywords": [
+    "component",
+    "css",
+    "design",
+    "facebook",
+    "material",
+    "react",
+    "react-component",
+    "reactjs"
+  ]
 }
