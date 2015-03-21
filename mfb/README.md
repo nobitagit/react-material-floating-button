@@ -10,18 +10,22 @@ See a demo [here](http://nobitagit.github.io/material-floating-button/) to see i
 
 <img src="http://zippy.gfycat.com/LimitedTatteredFieldmouse.gif">
 
-Test the available effects in the [showcase](http://nobitagit.github.io/material-floating-button/showcase.html).
-
-Demo icons courtesy of [Ionicons](ionicons.com)
+Test all the available effects to date in the [demo](http://nobitagit.github.io/material-floating-button/).
 
 ##Other versions##
 Also available as:
 
 - [Angular directive](https://github.com/nobitagit/ng-material-floating-button)
+- [React Component](https://github.com/nobitagit/react-material-floating-button)
 
 ##How to use##
 ###Basic usage###
-Download the whole repo directly on Github or clone it, (optionally) run `npm install` to have access to the configured Grunt tasks if you use them, then reference the basic css styles in your `<head>` like so:
+Clone/download the repo from Github or just use npm:
+```
+npm install mfb --save
+```
+
+(Optionally) run `npm install` to have access to the configured Grunt tasks if you use them, then reference the basic css styles in your `<head>` like so:
 
 ```html
 <link href="path/to/css/mfb.css" rel="stylesheet">
@@ -36,7 +40,7 @@ Use the appropriate html structure (better explained later), for example:
 ```
 Everything should already work fine.
 
-Optionally include the provided `mfb.js` script if you need click/touch support.
+You may or may not want to include the provided `mfb.js` script depending on the need to support click/touch.
 
 ```html
 <script src="path/to/js/mfb.js"></script>
@@ -71,9 +75,19 @@ The basic structure of the component is the following (the customisable classes/
 ```
 
 ####SCSS/CSS####
-Although you can use the provided css as is, it's highly likely that you will want to customise the looks and behavior of the component by changing its underlying css. A number of variables is provided for your convenience in the SASS file. 
 
-The suggested way to tweak them is to leave the `src/mfb.scss` unchanged and instead override its default values from the `_customise.scss` file. This will leave the core file unchanged from the source and you will be able to keep this repo as upstream and pull in any future changes without having to worry about overwriting your changes. An example of this can be found in `_customise-example.scss`.
+Although you can use the provided css as is, it's highly likely that you will want to customise the looks and behavior of the component by changing its underlying css. A number of variables is provided for your convenience in the SASS file.
+
+The best way to tweak them is leave the `src/mfb.scss` source as is, import it in your own style sheet and define your custom variables before the `@import` statement right there. For example:
+
+```scss
+// your .scss working file
+$main-color: #4991EF;
+
+@import "path/to/src/mfb.scss";
+```
+
+This will leave the core files unchanged from the source. You will then be able to keep this repo as upstream and pull in any future changes without having to worry about overwriting your changes.
 
 Here below is a breakdown of all the variables currently available, along with their defaults.
 
@@ -88,11 +102,14 @@ $number-of-child-buttons | 4 | how many child buttons the component supports
 #####Effects#####
 **n.b.** - set to true to include the effect styles in the compiled .css file. To actually activate the desired effect you need to reference the corresponding class in the markup (see [here](#html))
 
-Variable name | Default value | Explanation
---- | --- | ---
-$effects-zoomin | true | include zoomin styles in the css
-$effects-slidein | true | include slidein styles in the css
-$effects-fountain | true | include fountain styles in the css
+Variable name | Default value
+--- | ---
+$effects-zoomin | true
+$effects-slidein | true
+$effects-slidein-spring | true
+$effects-fountain | true
+
+As a suggestion, try to only include the animation you're using in production in order to have a much lighter css.
 
 #####Speeds#####
 
@@ -168,19 +185,19 @@ Or open it with:
 menu.setAttribute('data-mfb-state', 'open');
 ```
 
-##Contributions##
-Contributions are welcome. :)
+##Contributions?##
+Yes please!
+If you submit a PR please add the relative documentation in this README (if needed) and don't forget to add you name and/or email to the contributors list in the package.json file.
+
+##Credits##
+- Andrey Sitnik's [Easings.net](http://easings.net/) for visualizing animations.
+- Demo icons courtesy of [Ionicons](ionicons.com).
+- All the [contributors](https://github.com/nobitagit/material-floating-button/graphs/contributors) to this project.
 
 ##Todos##
 
-- [ ] provide minified script and stylesheet
+- [x] provide minified script and stylesheet
 - [ ] replace `@extend`s as much as possible from the SCSS to optimize output
 - [ ] more animations
-
-
-
-
-
-
-
-
+- [ ] add to bower
+- [ ] provide more variables/get rid of currently hard-coded values
