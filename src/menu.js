@@ -9,7 +9,7 @@ var childrenValidator = require('./utils/children-validator');
 var Menu = React.createClass({
 
   propTypes: {
-    effect: React.PropTypes.oneOf(['zoomin', 'slidein', 'fountain']).isRequired,
+    effect: React.PropTypes.oneOf(['zoomin', 'slidein', 'slidein-spring', 'fountain']).isRequired,
     position: React.PropTypes.oneOf(['tl', 'tr', 'bl', 'br']).isRequired,
     children: childrenValidator
   },

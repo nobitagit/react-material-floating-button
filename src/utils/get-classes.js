@@ -6,6 +6,7 @@ function getClasses(props){
   return classnames({
     'mfb-zoomin': props.effect === 'zoomin',
     'mfb-slidein': props.effect === 'slidein',
+    'mfb-slidein-spring': props.effect === 'slidein-spring',
     'mfb-fountain': props.effect === 'fountain',
     'mfb-component--tl': props.position === 'tl',
     'mfb-component--tr': props.position === 'tr',

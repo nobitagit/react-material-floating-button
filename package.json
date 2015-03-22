@@ -1,7 +1,7 @@
 {
   "name": "react-mfb",
-  "version": "0.0.2",
-  "description": "React component for a material menu à la Path and Google Inbox",
+  "version": "0.1.0",
+  "description": "React component for a material menu à la Google Inbox and Evernote",
   "author": "Nobita",
   "contributors": [],
   "repository": "nobitagit/react-material-floating-button",

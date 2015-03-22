@@ -43,10 +43,26 @@
           To add Material Floating Buttons to any project just download or clone the repo from Github. Click on the <strong>yellow button</strong> here above for a code preview or choose an effect from the <strong>dropdown</strong> below and interact with any button on the corners of the screen.
         </p>
         <p>
-          <select id="selections">
+          <select id="selections-fx">
+            <option disabled>Effect</option>
             <option value="zoomin" selected>Zoom in</option>
-            <option value="slidein">Slide in</option>
+            <option value="slidein">Slidein</option>
+            <option value="slidein-spring">Slidein (spring)</option>
             <option value="fountain">Fountain</option>
+          </select>
+
+          <select id="selections-pos">
+            <option disabled>Position</option>
+            <option value="tl">top left</option>
+            <option value="tr">top right</option>
+            <option value="bl">bottom left</option>
+            <option value="br" selected>bottom right</option>
+          </select>
+
+          <select id="selections-method">
+            <option disabled>Toggling method</option>
+            <option value="click">click</option>
+            <option value="hover" selected>hover</option>
           </select>
         </p>
 

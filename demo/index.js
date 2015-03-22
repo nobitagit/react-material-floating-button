@@ -5,18 +5,23 @@ var Menu = require('../').Menu;
 var MainButton = require('../').MainButton;
 var ChildButton = require('../').ChildButton;
 
-var panel = document.getElementById('panel');
-var showcode = document.getElementById('showcode');
-var select = document.getElementById('selections');
+var panel = document.getElementById('panel'),
+    showcode = document.getElementById('showcode'),
+    selectFx = document.getElementById('selections-fx'),
+    selectPos = document.getElementById('selections-pos'),
+    selectMethod = document.getElementById('selections-method');
 
-var effect = 'zoomin';
+// demo defaults
+var effect = 'zoomin',
+    pos = 'br',
+    method = 'hover';
 
 function renderMenu(){
   var component = (
-    <Menu effect={effect} method="hover" position="br">
+    <Menu effect={effect} method={method} position={pos}>
       <MainButton iconResting="ion-plus-round" iconActive="ion-close-round" />
       <ChildButton
-        onClick={function(e){ console.log(e); e.preventDefault(); }}
+        //onClick={function(e){ console.log(e); e.preventDefault(); }}
         icon="ion-social-github"
         label="View on Github"
         href="https://github.com/nobitagit/react-material-floating-button/" />
@@ -37,8 +42,17 @@ function renderMenu(){
 renderMenu();
 
 function switchEffect(){
-  var selected = this.options[this.selectedIndex].value;
-  effect = selected;
+  effect = this.options[this.selectedIndex].value;
+  renderMenu();
+}
+
+function switchPosition(){
+  pos = this.options[this.selectedIndex].value;
+  renderMenu();
+}
+
+function switchMethod(){
+  method = this.options[this.selectedIndex].value;
   renderMenu();
 }
 
@@ -47,4 +61,6 @@ function toggleCode() {
 }
 
 showcode.addEventListener('click', toggleCode);
-select.addEventListener('change', switchEffect);
+selectFx.addEventListener('change', switchEffect);
+selectPos.addEventListener('change', switchPosition);
+selectMethod.addEventListener('change', switchMethod);

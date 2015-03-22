@@ -47,7 +47,7 @@ module.exports = function(grunt) {
     copy: {
       live: {
         files: [{
-          src: ['demo/index.html', 'demo/index.css', 'build/mfb-menu.js'],
+          src: ['demo/index.html', 'demo/index.css', 'demo/bundle.js'],
           dest: 'gh-pages_temp',
           expand: true, flatten: true
         },{
@@ -90,11 +90,9 @@ module.exports = function(grunt) {
       'usemin',
       'gh-pages:live'
     ]);
-  // Live site dry run: test locally before pushing.
-  // In .grunt look for the folder 'check' and see if everything's ok
-  //grunt.registerTask('livecheck', ['clean:check','gh-pages:check']);
+  // Live site dry run
   grunt.registerTask('livecheck', [
-      'clean:live',
+      'clean:check',
       'useminPrepare',
       'copy:live',
       'usemin',
