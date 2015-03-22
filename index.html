@@ -13,10 +13,6 @@
 
     <script src="modernizr.touch.js"></script>
 
-    <script src="http://fb.me/react-with-addons-0.12.2.min.js"></script>
-
-    <script src="mfb-menu.js"></script>
-
     <link href="index.css" rel="stylesheet">
     <title>React Material Floating Button - by Nobita</title>
   </head>
@@ -43,10 +39,26 @@
           To add Material Floating Buttons to any project just download or clone the repo from Github. Click on the <strong>yellow button</strong> here above for a code preview or choose an effect from the <strong>dropdown</strong> below and interact with any button on the corners of the screen.
         </p>
         <p>
-          <select id="selections">
+          <select id="selections-fx">
+            <option disabled>Effect</option>
             <option value="zoomin" selected>Zoom in</option>
-            <option value="slidein">Slide in</option>
+            <option value="slidein">Slidein</option>
+            <option value="slidein-spring">Slidein (spring)</option>
             <option value="fountain">Fountain</option>
+          </select>
+
+          <select id="selections-pos">
+            <option disabled>Position</option>
+            <option value="tl">top left</option>
+            <option value="tr">top right</option>
+            <option value="bl">bottom left</option>
+            <option value="br" selected>bottom right</option>
+          </select>
+
+          <select id="selections-method">
+            <option disabled>Toggling method</option>
+            <option value="click">click</option>
+            <option value="hover" selected>hover</option>
           </select>
         </p>
 
@@ -84,70 +96,6 @@ React.render( component, document.getElementById('someId') );</pre>
       </footer>
     </section>
 
-
-    <script>
-
-      var panel = document.getElementById('panel'),
-          showcode = document.getElementById('showcode'),
-          select = document.getElementById('selections');
-
-
-
-      function switchEffect(e){
-        var selected = this.options[this.selectedIndex].value;
-        opts.effect = selected;
-        renderMenu();
-      }
-
-      function toggleCode() {
-        panel.classList.toggle('viewCode');
-      }
-
-      showcode.addEventListener('click', toggleCode);
-      select.addEventListener('change', switchEffect);
-
-      var buttons = [{
-          icon: 'ion-social-github',
-          label: 'View on Github',
-          href: 'https://github.com/nobitagit/react-material-floating-button/',
-          onClick: function(){
-            // do something
-          }
-        },{
-          icon: 'ion-social-octocat',
-          label: 'Follow me on Github',
-          href: 'https://github.com/nobitagit',
-          onClick: function(){
-            // do something more
-          }
-        }, {
-          icon: 'ion-social-twitter',
-          label: 'Share on Twitter',
-          href: 'http://twitter.com/share?text=Amazing Google Inbox style material floating menu as a React component!&url=http://nobitagit.github.io/react-material-floating-button/&hashtags=material,menu,reactjs,react,component',
-          onClick: function(){
-            // do something else
-          }
-        }];
-
-      var mainB = {
-        iconResting: 'ion-plus-round',
-        iconActive: 'ion-close-round',
-        label: null
-      };
-
-      var opts = {
-        effect: 'zoomin', // possible values: slidein | fountain | zoomin
-        method: 'click',  // possible values: hover | click
-        position: 'br',   // possible values: br | bl | tr | tl
-        buttons: buttons,
-        mainButton: mainB
-      };
-
-      function renderMenu(){
-        React.render( React.createElement(MfbMenu, opts), document.getElementById('menu') );
-      }
-      renderMenu();
-    </script>
-
+    <script src="bundle.js"></script>
   </body>
 </html>
