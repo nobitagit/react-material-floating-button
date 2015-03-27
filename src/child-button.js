@@ -9,7 +9,7 @@ var ChildButton = React.createClass({
       <li>
         <a href={this.props.href}
            data-mfb-label={this.props.label}
-           onClick={this.props.onClick && this.props.onClick.bind(this)}
+           onClick={this.props.onClick}
            className="mfb-component__button--child">
           <i className={iconClass}></i>
         </a>
