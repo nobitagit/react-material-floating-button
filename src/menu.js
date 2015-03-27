@@ -20,7 +20,9 @@ var Menu = React.createClass({
     };
   },
 
-  toggleMenu: function() {
+  toggleMenu: function(evt) {
+    evt.preventDefault();
+
     if(this.props.method === 'hover'){
       return;
     }
@@ -35,7 +37,7 @@ var Menu = React.createClass({
     var buttons = getChildren(this.props.children);
 
     var main = buttons.main && React.cloneElement(buttons.main, {
-      onToggleMenu: this.toggleMenu
+      onClick: this.toggleMenu
     });
 
     return (
