@@ -9,3 +9,4 @@ build/
 gh-pages_temp/
 demo/bundle.js
 mfb.css*
+mfb.scss
