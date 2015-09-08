@@ -7,5 +7,3 @@ dist
 npm-debug.log
 gh-pages_temp/
 demo/bundle.js
-mfb.css*
-mfb.scss
