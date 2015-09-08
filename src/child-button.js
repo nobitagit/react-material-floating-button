@@ -13,7 +13,9 @@ var ChildButton = React.createClass({
            data-mfb-label={this.props.label}
            onClick={this.props.onClick}
            className={className}>
-          <i className={iconClass}></i>
+          {this.props.children ||
+            <i className={iconClass}></i>
+          }
         </a>
       </li>
     );
