@@ -14,9 +14,9 @@ var MainButton = React.createClass({
     };
   },
   render: function(){
-    var iconResting = classnames('mfb-component__main-icon--resting', this.props.iconResting),
-        iconActive = classnames('mfb-component__main-icon--active', this.props.iconActive),
-        mainClass = classnames('mfb-component__button--main', this.props.className);
+    var iconResting = classnames('mfb-component__main-icon--resting', this.props.iconResting);
+    var iconActive = classnames('mfb-component__main-icon--active', this.props.iconActive);
+    var mainClass = classnames('mfb-component__button--main', this.props.className);
     if(this.props.label){
       return (
         <a href={this.props.href} className={mainClass} onClick={this.props.onClick} data-mfb-label={this.props.label}>

@@ -5,8 +5,8 @@ var classnames = require('classnames');
 
 var ChildButton = React.createClass({
   render: function(){
-    var iconClass = 'mfb-component__child-icon ' + this.props.icon,
-        className = classnames('mfb-component__button--child', this.props.className);
+    var iconClass = classnames('mfb-component__child-icon', this.props.icon);
+    var className = classnames('mfb-component__button--child', this.props.className);
     return (
       <li>
         <a href={this.props.href}
