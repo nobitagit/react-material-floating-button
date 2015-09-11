@@ -12,7 +12,7 @@ function getClasses(props){
     'mfb-component--tr': props.position === 'tr',
     'mfb-component--bl': props.position === 'bl',
     'mfb-component--br': props.position === 'br'
-  });
+  }, props.className);
 }
 
 module.exports = getClasses;
