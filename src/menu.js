@@ -23,9 +23,6 @@ var Menu = React.createClass({
   toggleMenu: function(evt) {
     evt.preventDefault();
 
-    if(this.props.method === 'hover'){
-      return;
-    }
     // flip the state from open to close and viceversa
     this.setState({
       isOpen: !this.state.isOpen
@@ -36,9 +33,10 @@ var Menu = React.createClass({
     var classes = getClasses(this.props);
     var buttons = getChildren(this.props.children);
 
-    var main = buttons.main && React.cloneElement(buttons.main, {
+    var main = buttons.main && React.cloneElement(buttons.main,
+      this.props.method !== 'hover' && {
       onClick: this.toggleMenu
-    });
+    } || {});
 
     return (
       <ul className={classes}

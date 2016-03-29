@@ -26,9 +26,6 @@
   "dependencies": {
     "classnames": "^1.2.0"
   },
-  "peerDependencies": {
-    "react": "^0.13.0"
-  },
   "devDependencies": {
     "browserify": "^9.0.3",
     "grunt": "^0.4.5",
