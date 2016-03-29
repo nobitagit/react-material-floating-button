@@ -42,7 +42,7 @@ function renderIconMenu(){
 
 function renderTextMenu(){
   var component = (
-    <Menu effect={effect} method={method} position={pos}>
+    <Menu effect={effect} method={method} position={pos} className="textLabels">
       <MainButton iconResting="ion-plus-round" iconActive="ion-close-round" />
       <ChildButton
         //onClick={function(e){ console.log(e); e.preventDefault(); }}
