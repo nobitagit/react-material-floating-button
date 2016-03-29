@@ -199,4 +199,9 @@ pre{
   100% {
     transform: translateY(0);
   }
-}   
+}
+.mfb-component__list li{
+  line-height: 56px;
+  font-size: 12px;
+  text-align: center;
+}
