@@ -21,7 +21,8 @@
   "scripts": {
     "prepublish": "gulp",
     "build": "gulp",
-    "bro": "npm run build && browserify -t reactify demo/index.js -o demo/bundle.js"
+    "bro": "npm run build && browserify -t reactify demo/index.js -o demo/bundle.js",
+    "postinstall":"npm run build"
   },
   "dependencies": {
     "classnames": "^1.2.0",
