@@ -9,6 +9,14 @@
     "node": ">= 0.10"
   },
   "main": "index.js",
+  "files": [
+    "LICENSE",
+    "index.js",
+    "mfb.css",
+    "mfb.css.map",
+    "mfb.scss",
+    "build"
+  ],
   "scripts": {
     "build": "gulp",
     "bro": "npm run build && browserify -t reactify demo/index.js -o demo/bundle.js",
