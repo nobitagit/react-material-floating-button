@@ -24,10 +24,11 @@
     "bro": "npm run build && browserify -t reactify demo/index.js -o demo/bundle.js"
   },
   "dependencies": {
-    "classnames": "^1.2.0"
+    "classnames": "^1.2.0",
+    "react-dom": "^15.3.1"
   },
   "peerDependencies": {
-    "react": "^0.13.0"
+    "react": "^15.3.1"
   },
   "devDependencies": {
     "browserify": "^9.0.3",
