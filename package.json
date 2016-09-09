@@ -1,28 +1,18 @@
 {
   "name": "react-mfb",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "React component for a material menu à la Google Inbox and Evernote",
   "author": "Nobita",
   "contributors": [],
-  "repository": "24ark/react-material-floating-button",
   "license": "MIT",
   "engines": {
     "node": ">= 0.10"
   },
   "main": "index.js",
-  "files": [
-    "LICENSE",
-    "index.js",
-    "mfb.css",
-    "mfb.css.map",
-    "mfb.scss",
-    "build"
-  ],
   "scripts": {
-    "prepublish": "gulp",
     "build": "gulp",
     "bro": "npm run build && browserify -t reactify demo/index.js -o demo/bundle.js",
-    "postinstall":"npm run build"
+    "prepublish": "gulp"
   },
   "dependencies": {
     "classnames": "^1.2.0",
