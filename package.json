@@ -4,7 +4,7 @@
   "description": "React component for a material menu à la Google Inbox and Evernote",
   "author": "Nobita",
   "contributors": [],
-  "repository": "nobitagit/react-material-floating-button",
+  "repository": "24ark/react-material-floating-button",
   "license": "MIT",
   "engines": {
     "node": ">= 0.10"
