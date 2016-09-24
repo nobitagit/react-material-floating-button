@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var Menu = require('../').Menu;
 var MainButton = require('../').MainButton;
 var ChildButton = require('../').ChildButton;
@@ -36,7 +37,7 @@ function renderMenu(){
     </Menu>
   );
 
-  React.render(component, document.getElementById('menu'));
+  ReactDOM.render(component, document.getElementById('menu'));
 }
 
 renderMenu();
