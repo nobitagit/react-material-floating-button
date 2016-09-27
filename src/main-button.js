@@ -16,9 +16,9 @@ var MainButton = React.createClass({
   },
 
   handleOnKeyDown: function handleOnKeyDown(evt) {
-    evt.preventDefault();
     
     if (evt.key === 'Enter' || evt.key === ' ') {
+      evt.preventDefault();
       this.props.callBackParent('TOGGLE_MENU');
     }
     this.props.onKeyDown(evt, this.props.label);
