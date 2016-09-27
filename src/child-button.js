@@ -14,6 +14,19 @@ var ChildButton = React.createClass({
     this.props.onClick();
   },
 
+  handleOnKeyDown: function handleOnKeyDown(evt) {
+    evt.preventDefault();
+
+    if(this.props.disabled === true) {
+      return;
+    }
+
+    if (evt.key === 'Enter' || evt.key === ' ') {
+      this.props.callBackParent('TOGGLE_MENU');
+    }
+    this.props.onKeyDown(evt, this.props.label);
+  },
+
   render: function(){
     var iconClass = classnames('mfb-component__child-icon', this.props.icon);
     var className = classnames('mfb-component__button--child',
@@ -24,7 +37,9 @@ var ChildButton = React.createClass({
         <a href={this.props.href}
            data-mfb-label={this.props.label}
            onClick={this.handleOnClick}
-           className={className}>
+           className={className}
+           onKeyDown={this.props.handleOnKeyDown}
+           data-focusable={this.props.focus}>
           <i className={iconClass}></i>
         </a>
       </li>
