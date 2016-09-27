@@ -15,14 +15,19 @@ var ChildButton = React.createClass({
   },
 
   handleOnKeyDown: function handleOnKeyDown(evt) {
-    if(this.props.disabled === true) {
+    if (this.props.disabled === true) {
       return;
     }
 
-    if (evt.key === 'Enter' || evt.key === ' ') {
+    if (evt.key === 'Enter' || evt.key === ' ' || evt.key === 'Escape') {
       evt.preventDefault();
       this.props.callBackParent('TOGGLE_MENU');
+    } else if (evt.key === 'Tab') {
+      if (this.props.key === (this.props.totalChildCount - 1)) {
+        this.props.callBackParent('TOGGLE_MENU');
+      }
     }
+
     this.props.onKeyDown(evt, this.props.label);
   },
 
@@ -34,10 +39,11 @@ var ChildButton = React.createClass({
     return (
       <li>
         <a href={this.props.href}
+           id={this.props.label}
            data-mfb-label={this.props.label}
            onClick={this.handleOnClick}
            className={className}
-           onKeyDown={this.props.handleOnKeyDown}
+           onKeyDown={this.handleOnKeyDown}
            data-focusable={this.props.focus}>
           <i className={iconClass}></i>
         </a>

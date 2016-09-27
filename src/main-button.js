@@ -32,14 +32,14 @@ var MainButton = React.createClass({
 
     if(this.props.label){
       return (
-        <a href={this.props.href} className={mainClass} onClick={this.props.onClick} onKeyDown={this.handleOnKeyDown} data-mfb-label={this.props.label} data-focusable={focus}>
+        <a href={this.props.href} id="mfb-main-button" className={mainClass} onClick={this.props.onClick} onKeyDown={this.handleOnKeyDown} data-mfb-label={this.props.label} data-focusable={focus}>
           <i className={iconResting}></i>
           <i className={iconActive}></i>
         </a>
       );
     } else {
       return (
-        <a href={this.props.href} className={mainClass} onClick={this.props.onClick} onKeyDown={this.handleOnKeyDown} data-focusable={focus}>
+        <a href={this.props.href} id="mfb-main-button" className={mainClass} onClick={this.props.onClick} onKeyDown={this.handleOnKeyDown} data-focusable={focus}>
           <i className={iconResting}></i>
           <i className={iconActive}></i>
         </a>

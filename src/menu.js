@@ -54,7 +54,8 @@ var Menu = React.createClass({
     for (var i = 0; i < buttons.child.length; i++) {
       var child = React.cloneElement(buttons.child[i], {
         key: i,
-        callBackParent: that.childChanged
+        callBackParent: that.childChanged,
+        totalChildCount: buttons.child.length
       });
       childButtons.push(child);
     }
