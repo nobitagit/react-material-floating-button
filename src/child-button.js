@@ -22,13 +22,12 @@ var ChildButton = React.createClass({
     if (evt.key === 'Enter' || evt.key === ' ' || evt.key === 'Escape') {
       evt.preventDefault();
       this.props.callBackParent('TOGGLE_MENU');
+      this.props.onKeyDown(evt, this.props.label);
     } else if (evt.key === 'Tab') {
-      if (this.props.key === (this.props.totalChildCount - 1)) {
+      if (this.props.index === (this.props.totalChildCount - 1)) {
         this.props.callBackParent('TOGGLE_MENU');
       }
     }
-
-    this.props.onKeyDown(evt, this.props.label);
   },
 
   render: function(){
