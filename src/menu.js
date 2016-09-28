@@ -32,13 +32,34 @@ var Menu = React.createClass({
     });
   },
 
+  childChanged: function childChanged(action) {
+    if (action === 'TOGGLE_MENU') {
+      this.setState({
+        isOpen: !this.state.isOpen
+      });
+    }
+  },
+
   render: function() {
     var classes = getClasses(this.props);
     var buttons = getChildren(this.props.children);
 
     var main = buttons.main && React.cloneElement(buttons.main, {
-      onClick: this.toggleMenu
+      onClick: this.toggleMenu,
+      callBackParent: this.childChanged
     });
+
+    var childButtons = [];
+    var that = this;
+    for (var i = 0; i < buttons.child.length; i++) {
+      var child = React.cloneElement(buttons.child[i], {
+        key: i,
+        index: i,
+        callBackParent: that.childChanged,
+        totalChildCount: buttons.child.length
+      });
+      childButtons.push(child);
+    }
 
     return (
       <ul className={classes}
@@ -47,7 +68,7 @@ var Menu = React.createClass({
         <li className="mfb-component__wrap">
           {main}
           <ul className="mfb-component__list">
-            {buttons.child}
+            {childButtons}
           </ul>
         </li>
       </ul>
