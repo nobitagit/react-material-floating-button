@@ -23,15 +23,15 @@ function renderMenu(){
       <MainButton iconRestingClass="ion-plus-round" iconActiveClass="ion-close-round" />
       <ChildButton
         //onClick={function(e){ console.log(e); e.preventDefault(); }}
-        icon="ion-social-github"
+        iconClass="ion-social-github"
         label="View on Github"
         href="https://github.com/nobitagit/react-material-floating-button/" />
       <ChildButton
-        icon="ion-social-octocat"
+        iconClass="ion-social-octocat"
         label="Follow me on Github"
         href="https://github.com/nobitagit" />
       <ChildButton
-        icon="ion-social-twitter"
+        iconClass="ion-social-twitter"
         label="Share on Twitter"
         href="http://twitter.com/share?text=Amazing Google Inbox style material floating menu as a React component!&url=http://nobitagit.github.io/react-material-floating-button/&hashtags=material,menu,reactjs,react,component" />
     </Menu>
