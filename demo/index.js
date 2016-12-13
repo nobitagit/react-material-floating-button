@@ -20,7 +20,7 @@ var effect = 'zoomin',
 function renderMenu(){
   var component = (
     <Menu effect={effect} method={method} position={pos}>
-      <MainButton iconResting="ion-plus-round" iconActive="ion-close-round" />
+      <MainButton iconRestingClass="ion-plus-round" iconActiveClass="ion-close-round" />
       <ChildButton
         //onClick={function(e){ console.log(e); e.preventDefault(); }}
         icon="ion-social-github"
