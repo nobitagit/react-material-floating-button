@@ -5,13 +5,13 @@ var classnames = require('classnames');
 
 var ChildButton = React.createClass({
 
-  handleOnClick: function handleOnClick() {
+  handleOnClick: function handleOnClick(e) {
     if(this.props.disabled === true)
     {
       return;
     }
 
-    this.props.onClick();
+    this.props.onClick(e);
   },
 
   render: function(){
