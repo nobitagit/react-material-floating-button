@@ -10,8 +10,10 @@ function getChildren(children){
     child: []
   };
 
-  Children.forEach(children, function(child){
-    if(child.type === MainButton){
+  Children.forEach(children, function(child) {
+    if (!child) return;
+
+    if(child.type === MainButton) {
       buttons.main = child;
       return;
     }
