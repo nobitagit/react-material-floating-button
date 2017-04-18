@@ -174,9 +174,15 @@ $number-of-child-buttons: 4 !default;
   @extend .mfb-component;
   left: 0; bottom: 0;
 }
+
 .mfb-component--br{
+   @extend .mfb-component;
+   right: 0; bottom: 0;
+}
+
+.mfb-component--r{
   @extend .mfb-component;
-  right: 0; bottom: 0;
+  position: relative;
 }
 
 
