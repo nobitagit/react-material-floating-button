@@ -1,0 +1,84 @@
+Arguments: 
+  /usr/local/bin/node /Users/trevor/.yarn/bin/yarn.js
+
+PATH: 
+  /Users/trevor/.yarn/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  0.22.0
+
+Node version: 
+  6.9.1
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "react-mfb",
+    "version": "0.4.1",
+    "description": "React component for a material menu à la Google Inbox and Evernote",
+    "author": "Nobita",
+    "contributors": [],
+    "license": "MIT",
+    "repository": "nobitagit/react-material-floating-button",
+    "engines": {
+      "node": ">= 0.10"
+    },
+    "main": "index.js",
+    "files": [
+      "LICENSE",
+      "index.js",
+      "mfb.css",
+      "mfb.css.map",
+      "mfb.scss",
+      "build"
+    ],
+    "scripts": {
+      "build": "gulp",
+      "bro": "npm run build && browserify -t reactify demo/index.js -o demo/bundle.js",
+      "prepublish": "gulp"
+    },
+    "dependencies": {
+      "classnames": "^1.2.0",
+      "react-dom": "^15.3.1"
+    },
+    "peerDependencies": {
+      "react": "^15.3.1"
+    },
+    "devDependencies": {
+      "browserify": "^9.0.3",
+      "grunt": "^0.4.5",
+      "grunt-contrib-clean": "^0.6.0",
+      "grunt-contrib-copy": "^0.8.0",
+      "grunt-contrib-jshint": "^0.10.0",
+      "grunt-contrib-sass": "^0.8.1",
+      "grunt-contrib-watch": "^0.6.1",
+      "grunt-gh-pages": "^0.9.1",
+      "grunt-usemin": "^3.0.0",
+      "gulp": "^3.8.11",
+      "gulp-babel": "^4.0.0",
+      "reactify": "^1.0.0"
+    },
+    "keywords": [
+      "component",
+      "css",
+      "design",
+      "facebook",
+      "material",
+      "react",
+      "react-component",
+      "reactjs"
+    ]
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: read ETIMEDOUT
+      at exports._errnoException (util.js:1026:11)
+      at TLSWrap.onread (net.js:569:26)
