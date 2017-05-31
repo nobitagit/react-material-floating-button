@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var PropTypes = require("prop-types");
 
 var getClasses = require('./utils/get-classes');
 var getChildren = require('./utils/get-children');
@@ -9,8 +10,8 @@ var childrenValidator = require('./utils/children-validator');
 var Menu = React.createClass({
 
   propTypes: {
-    effect: React.PropTypes.oneOf(['zoomin', 'slidein', 'slidein-spring', 'fountain']).isRequired,
-    position: React.PropTypes.oneOf(['tl', 'tr', 'bl', 'br']).isRequired,
+    effect: PropTypes.oneOf(['zoomin', 'slidein', 'slidein-spring', 'fountain']).isRequired,
+    position: PropTypes.oneOf(['tl', 'tr', 'bl', 'br']).isRequired,
     children: childrenValidator
   },
 
