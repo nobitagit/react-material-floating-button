@@ -3,18 +3,24 @@
 var React = require('react');
 var classnames = require('classnames');
 
-var ChildButton = React.createClass({
+class ChildButton extends React.Component {
+  constructor(props) {
+    super(props);
 
-  handleOnClick: function handleOnClick() {
-    if(this.props.disabled === true)
-    {
+    this.handleOnClick = this.handleOnClick.bind(this);
+  }
+
+  handleOnClick() {
+    if (this.props.disabled === true) {
       return;
     }
 
-    this.props.onClick();
-  },
+    if (this.props.onClick) {
+      this.props.onClick();
+    }
+  }
 
-  render: function(){
+  render() {
     var iconClass = classnames('mfb-component__child-icon', this.props.icon);
     var className = classnames('mfb-component__button--child',
                                this.props.className,
@@ -30,6 +36,6 @@ var ChildButton = React.createClass({
       </li>
     );
   }
-});
+}
 
 module.exports = ChildButton;
