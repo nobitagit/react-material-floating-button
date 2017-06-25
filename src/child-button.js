@@ -24,6 +24,7 @@ var ChildButton = React.createClass({
         <a href={this.props.href}
            data-mfb-label={this.props.label}
            onClick={this.handleOnClick}
+           style={this.props.style}
            className={className}>
           <i className={iconClass}></i>
         </a>
