@@ -33,8 +33,18 @@ class Menu extends React.Component {
     var classes = getClasses(this.props);
     var buttons = getChildren(this.props.children);
 
+    var onClick = null;
+    if (this.props.simpleAction ) {
+      typeof this.props.onMainButtonClick === 'function' ? this.props.onMainButtonClick() : ''
+    }
+    else {
+      this.props.onMainButtonClick ? this.props.onMainButtonClick() : '';
+      this.toggleMenu(); // CHANGED
+    }
+
     var main = buttons.main && React.cloneElement(buttons.main, {
-      onClick: this.toggleMenu
+      // onClick: this.toggleMenu
+      onClick: onClick,
     });
 
     return (
@@ -55,7 +65,8 @@ class Menu extends React.Component {
 Menu.propTypes = {
   effect: PropTypes.oneOf(['zoomin', 'slidein', 'slidein-spring', 'fountain']).isRequired,
   position: PropTypes.oneOf(['tl', 'tr', 'bl', 'br']).isRequired,
-  children: childrenValidator
+  children: childrenValidator,
+  onMainButtonClick: PropTypes.func
 };
 
 module.exports = Menu;
