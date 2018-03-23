@@ -24,8 +24,11 @@ class Menu extends React.Component {
       return;
     }
     // flip the state from open to close and viceversa
+    var nextOpenState = !this.state.isOpen;
+
+    this.props.onToggleMenu && this.props.onToggleMenu(nextOpenState);
     this.setState({
-      isOpen: !this.state.isOpen
+      isOpen: nextOpenState
     });
   }
 
