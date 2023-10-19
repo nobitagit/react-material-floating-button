@@ -14,4 +14,4 @@ gulp.task('css', function(){
     .pipe(gulp.dest('./'));
 });
 
-gulp.task('default', ['js', 'css']);
+gulp.task('default', gulp.series('js', 'css'));
