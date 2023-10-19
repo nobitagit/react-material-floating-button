@@ -1,11 +1,11 @@
 {
   "name": "react-new-mfb",
   "version": "0.1.0",
-  "description": "React component for a material menu à la Google Inbox and Evernote",
+  "description": "Fork of https://github.com/nobitagit/react-material-floating-button",
   "author": "Nobita",
   "contributors": [],
   "license": "MIT",
-  "repository": "nobitagit/react-material-floating-button",
+  "repository": "ntolosa/react-material-floating-button",
   "engines": {
     "node": ">= 0.10"
   },
