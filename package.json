@@ -1,6 +1,6 @@
 {
-  "name": "react-mfb",
-  "version": "0.6.0",
+  "name": "react-new-mfb",
+  "version": "0.1.0",
   "description": "React component for a material menu à la Google Inbox and Evernote",
   "author": "Nobita",
   "contributors": [],
@@ -26,7 +26,8 @@
   "dependencies": {
     "classnames": "^1.2.0",
     "prop-types": "^15.5.10",
-    "react-dom": "^15.3.1"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "peerDependencies": {
     "react": "^15.3.1"
@@ -41,7 +42,7 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-gh-pages": "^0.9.1",
     "grunt-usemin": "^3.0.0",
-    "gulp": "^3.8.11",
+    "gulp": "^4.0.0",
     "gulp-babel": "^4.0.0",
     "reactify": "^1.0.0"
   },
